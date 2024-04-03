@@ -17,6 +17,8 @@ class Graph
         vertices.each {|v| v.append}
     end 
 
+    #First tried this with the depth search first method, which was interesting, but didn't
+    #give me the results I wanted. 
     def dfs(v, visited = [])
         vert = get_v(v)
         visited << v 
@@ -96,18 +98,7 @@ end
 
 graph = Graph.new
 
-
-#p graph.path(graph.bfs([3,3]), [3,3], [4,3])
-
-#graph.bfs([3,3]).each do |v|
- 
-#p v
-#end 
-
 graph.knights_move([0,0], [7,7])
-
-
-#graph.vertices.each {|v| p "#{v.coord}:  #{v.neighbors}"}
 
 
 

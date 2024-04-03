@@ -6,6 +6,7 @@ class Vertex
         @neighbors = []
     end 
 
+    #rough method for assigning the board, it's a little too manual.
     def append
         @neighbors <<  [@coord[0]-1, @coord[1]-2] unless (coord[0] < 1 || @coord[1] < 2)
         @neighbors << [@coord[0]+1, @coord[1]-2] unless (coord[0] > 6 || @coord[1] < 2)
