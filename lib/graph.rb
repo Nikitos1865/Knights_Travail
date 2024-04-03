@@ -63,12 +63,14 @@ class Graph
         
     end 
 
-    def knights_move(origin, dest, arr = [dest])
-        bfs = bfs(origin)
+    #recursively runs through the bfs map returned from the bfs method and prints out an array 
+    #the path taken from the origin to the destination
+    def path(map, origin, dest, arr = [dest])
+        bfs = map
 
         arr << precursor = bfs[dest][1]
 
-        knights_move(origin, precursor, arr) unless precursor == origin
+        path(map, origin, precursor, arr) unless precursor == origin
 
         arr
     end 
@@ -80,19 +82,29 @@ class Graph
         v[0]
     end 
 
+    def knights_move(origin, destination)
+        bfs = bfs(origin)
+        puts "You got to #{destination} from #{origin} in #{bfs[destination][0]} moves"
+        puts "This is the path taken: "
+        p path(bfs, origin, destination).reverse
+    end 
+
+    
+
 
 end 
 
 graph = Graph.new
 
 
+#p graph.path(graph.bfs([3,3]), [3,3], [4,3])
 
+#graph.bfs([3,3]).each do |v|
+ 
+#p v
+#end 
 
-graph.bfs([3,3]).each do |v|
-    p v
-end 
-
-p graph.knights_move([3,3],[4,3])
+graph.knights_move([0,0], [7,7])
 
 
 #graph.vertices.each {|v| p "#{v.coord}:  #{v.neighbors}"}
