@@ -96,9 +96,6 @@ class Graph
 
 end 
 
-graph = Graph.new
-
-graph.knights_move([0,0], [7,7])
 
 
 
